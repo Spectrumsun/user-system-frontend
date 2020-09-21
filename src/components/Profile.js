@@ -22,7 +22,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
       const response = 
-        await axios.get(`http://localhost:5000/api/v1/user-profile?token=${localStorage.jwtToken}`);
+        await axios.get(`https://user-system-backend.herokuapp.com/api/v1/user-profile?token=${localStorage.jwtToken}`);
       setData(response.data.data.userDetail);
       setUpdateProfile({...response.data.data.userDetail})
     };
@@ -52,7 +52,7 @@ const Profile = () => {
         updateData.email = profile.email;
       }
       
-      const responses = await axios.post(`http://localhost:5000/api/v1/update-profile?token=${localStorage.jwtToken}`, updateData);
+      const responses = await axios.post(`https://user-system-backend.herokuapp.com/api/v1/update-profile?token=${localStorage.jwtToken}`, updateData);
       localStorage.setItem('jwtToken', responses.data.data.token);
       toast.success('Profile updated')
     } catch(error) {

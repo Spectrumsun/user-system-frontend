@@ -26,7 +26,7 @@ const AdminDashboard = () => {
     
     const fetchProfile = async () => {
       const response = 
-        await axios.get(`http://localhost:5000/api/v1/users?token=${localStorage.jwtToken}`);
+        await axios.get(`https://user-system-backend.herokuapp.com/api/v1/users?token=${localStorage.jwtToken}`);
         setUsers(response.data.data);
     };
     fetchProfile() ;
@@ -34,21 +34,21 @@ const AdminDashboard = () => {
 
   const fetchProfile = async () => {
     const response = 
-      await axios.get(`http://localhost:5000/api/v1/users?token=${localStorage.jwtToken}`);
+      await axios.get(`https://user-system-backend.herokuapp.com/api/v1/users?token=${localStorage.jwtToken}`);
       setUsers(response.data.data);
   };
 
 
   const handleChangeRole = async (id, role) => {
     const updateRole = role === 'User' ? 'Admin' : 'User';
-    await axios.put(`http://localhost:5000/api/v1/update-role/${id}?token=${localStorage.jwtToken}`, {role: updateRole});
+    await axios.put(`https://user-system-backend.herokuapp.com/api/v1/update-role/${id}?token=${localStorage.jwtToken}`, {role: updateRole});
     toast.success('Role updated');
     await fetchProfile();
     }
 
     const handleSuspendAccount = async (id, accountStatus) => {
       const status = accountStatus === 'Active' ? 'Suspended' : 'Active';
-      await axios.put(`http://localhost:5000/api/v1/suspend-account/${id}?token=${localStorage.jwtToken}`, { accountStatus: status });
+      await axios.put(`https://user-system-backend.herokuapp.com/api/v1/suspend-account/${id}?token=${localStorage.jwtToken}`, { accountStatus: status });
       toast.success('Account  Suspended');
       await fetchProfile();
       }

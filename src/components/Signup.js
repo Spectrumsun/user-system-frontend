@@ -41,7 +41,7 @@ const Signup = () => {
     }
   
     try {
-      const responses = await axios.post('http://localhost:5000/api/v1/signup', inputValue);
+      const responses = await axios.post('https://user-system-backend.herokuapp.com/api/v1/signup', inputValue);
       localStorage.setItem('jwtToken', responses.data.data.token);
       navigate('/', true); 
       toast.success('Account created ')
