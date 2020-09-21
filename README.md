@@ -3,7 +3,7 @@ A simple web application for user management
 
 # View App
     * backend APi   https://user-system-backend.herokuapp.com/api/v1
-    * Host App      https://front-phone.herokuapp.com/
+    * Host App      https://user-system-ui.herokuapp.com/
 
 
 # Technologies Used
